@@ -11,9 +11,9 @@ app.set('view engine', 'hbs');
 //    next(); 
 // });
 
-app.use(express.static(__dirname +'/public'));
+// app.use(express.static(__dirname +'/public'));
 
-app.get('/home',(req , res) => {
+app.get('/',(req , res) => {
     res.render('home.hbs', {
         pageTitle : 'Home Page',
         currentYear : new Date().getFullYear()
@@ -26,6 +26,13 @@ app.get('/about',(req , res) => {
        currentYear : new Date().getFullYear()
    })
 });
+
+app.get('/projects',(req , res) => {
+    res.render('projects.hbs', {
+        pageTitle : 'Projects',
+        currentYear : new Date().getFullYear()
+    })
+ });
 
 app.listen(3000, () => {
     console.log("server is running up on the port 3000");
